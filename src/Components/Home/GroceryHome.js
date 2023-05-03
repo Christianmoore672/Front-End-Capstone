@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import "./Groceries.css"
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
+import { NewCartItem } from "./NewCartItem"
 
 
 export const Groceries = () => {
     const [groceryItems, setGroceries] = useState([])
     const [filteredGroceries, setFiltered] = useState([])
+    const [filteredCartGroceries, setFilteredCart] = useState([])
     const navigate = useNavigate()
 
     const localGroceryUser = localStorage.getItem("grocery_user")
@@ -15,8 +17,7 @@ export const Groceries = () => {
         return fetch(`http://localhost:8088/groceryItems`)
         .then(response => response.json())
         .then((groceryItemArray) => {
-            const filteredGroceries = groceryItemArray.filtered(item => item.groceryItem)
-             setGroceries(filteredGroceries)
+             setGroceries(groceryItemArray)
         })
      }
     
@@ -70,6 +71,39 @@ export const Groceries = () => {
         //     })
     
         // }
+
+        const addToCart = (id) => {
+    
+            return fetch(`http://localhost:8088/groceryItems/${id}`, {
+                    method: "PATCH",
+                    headers: {
+                            "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({groceryItem: true})
+            })
+                    .then(response => response.json())
+                    .then(() => {
+                        fetchGroceryItems()
+                        })
+    
+        }
+
+        const removeFromCart = (id) => {
+    
+            return fetch(`http://localhost:8088/groceryItems/${id}`, {
+                    method: "PATCH",
+                    headers: {
+                            "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({groceryItem: false})
+            })
+                    .then(response => response.json())
+                    .then(() => {
+                        fetchGroceryItems()
+                        })
+    
+        }
+// PATCH: like "PUT" but only deals w/ 1 field. 
             
 
     useEffect(
@@ -77,10 +111,7 @@ export const Groceries = () => {
                     return fetch(`http://localhost:8088/groceryItems`)
                     .then(response => response.json())
                     .then((groceryItemArray) => {
-                        const filteredGroceries = groceryItemArray.filter(item => { 
-                            console.log(item.groceryItem)
-                            return item.groceryItem === false})
-                         setGroceries(filteredGroceries)
+                         setGroceries(groceryItemArray)
                     })
                  
             },
@@ -89,9 +120,11 @@ export const Groceries = () => {
     
         useEffect(
             () => {
-             const myGroceries = groceryItems.filter(groceryItems => groceryItems.userId === groceryUserObject.id)
+             const myGroceries = groceryItems.filter(groceryItems => groceryItems.userId === groceryUserObject.id && groceryItems.groceryItem === false)
                 setFiltered(myGroceries)
                 
+                const myCartGroceries = groceryItems.filter(groceryItems => groceryItems.userId === groceryUserObject.id && groceryItems.groceryItem === true)
+                setFilteredCart(myCartGroceries)
              },
                     [groceryItems]
             )
@@ -125,7 +158,7 @@ export const Groceries = () => {
                                 Delete
                             </button>
                             <button 
-                                // onClick={(clickEvent) => moveItemToCart(clickEvent)}
+                                onClick={() => addToCart(groceryItem.id)}
                                 className="btn btn-primary">
                                 ++
                                 </button>
@@ -135,28 +168,43 @@ export const Groceries = () => {
                 )
             }
             </section>
-            
+        
             <section className="user_cart">
             <header className="cart_Header">Your Cart
             </header>
             {
-                // filteredCartItems.map(
-                //     (cartItem) => {
-                //         return <section className="cart_Database">
-                //             <header>{cartItem.itemName}</header>
-                //             <section>Price: ${cartItem.itemPrice}</section>
-                //             <section>Servings Per Container: {cartItem.itemServings}</section>
-                //             <footer>
-                //             <button
-                //                 className="btn btn-primary">
-                //                 --
-                //             </button>
-                //             </footer>
-                //         </section>
-                    // }
-                // )
+                filteredCartGroceries.map(
+                    (cartItem) => {
+                        return <section className="cart_Database">
+                            <header>{cartItem.itemName}</header>
+                            <section>Price: ${cartItem.itemPrice}</section>
+                            <section>Servings Per Container: {cartItem.itemServings}</section>
+                            <footer>
+                            <button
+                                onClick={() => removeFromCart(cartItem.id)}
+                                className="btn btn-primary">
+                                --
+                            </button>
+                            </footer>
+                        </section>
+                    }
+                )
             }
+                        <section className="calculation">
+                
+                            <div className="total"></div>  
+
+                            <div className="calculate_button">
+                            <button
+                                className="btn btn-primary">
+                                Calculate Total
+                            </button>
+                            </div>
+        
+                        </section>
+                 
             </section>
+
             </article>
     
         </>

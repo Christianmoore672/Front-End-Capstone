@@ -194,7 +194,7 @@ export const Groceries = () => {
                 
                             <div className="total"></div>  
 
-                            <div className="calculate_button">
+                            <div className="calculat_button">
                             <button
                                 className="btn btn-primary">
                                 Calculate Total

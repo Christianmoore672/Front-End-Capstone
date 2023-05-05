@@ -1,7 +1,8 @@
 import { Route, Routes, Outlet } from "react-router-dom"
 import { Groceries } from "../Home/GroceryHome"
 import { NewItemForm } from "../Home/NewItemForm"
-import { GroceryItemEdit } from "../Home/TotalCalculator"
+import { GroceryItemEdit } from "../Home/EditGroceryItem"
+import "./ApplicationViews.css"
 
 
 export const ApplicationViews = () => {

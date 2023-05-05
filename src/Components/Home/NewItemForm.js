@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 export const NewItemForm = () => {
     
@@ -44,11 +47,11 @@ export const NewItemForm = () => {
     }
 
     return (
-        <form className="groceryItemForm">
+        <Form className="groceryItemForm">
             <h2 className="groceryItemForm__title">New Grocery Item</h2>
-            <fieldset>
+            <Form.Group>
                 <div className="form-group">
-                    <label htmlFor="description">Item Name:</label>
+                <Form.Label htmlFor="description">Item Name:</Form.Label>
                     <input
                         required autoFocus
                         type="text"
@@ -63,10 +66,10 @@ export const NewItemForm = () => {
                                 }
                         } />
                 </div>
-            </fieldset>
-            <fieldset>
+            </Form.Group>
+            <Form.Group>
                 <div className="form-group">
-                    <label htmlFor="description">Item Price:</label>
+                <Form.Label htmlFor="description">Item Price:</Form.Label>
                     <input
                         required autoFocus
                         type="text"
@@ -81,10 +84,10 @@ export const NewItemForm = () => {
                                 }
                         } />
                 </div>
-            </fieldset>
-            <fieldset>
+            </Form.Group>
+            <Form.Group>
                 <div className="form-group">
-                    <label htmlFor="description">Servings per Container:</label>
+                    <Form.Label htmlFor="description">Servings per Container:</Form.Label>
                     <input
                         required autoFocus
                         type="text"
@@ -99,13 +102,37 @@ export const NewItemForm = () => {
                                 }
                         } />
                 </div>
-            </fieldset>
+             </Form.Group>
 
-            <button 
+            <Button 
+                variant="primary" type="submit"
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
                 Save Item
-            </button>
-        </form>
+            </Button>
+            </Form>
     )
 }
+
+
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+

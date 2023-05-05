@@ -118,6 +118,7 @@
     float: right;
 }
 
+
 .total
 {
     border: dotted rgb(111, 87, 87);
@@ -132,4 +133,12 @@
     cursor: pointer;
     border-radius: 5px;
     width: 30%;
+}
+
+.welcome {
+    color: rgb(59, 55, 55);
+}
+
+.header {
+    
 }

@@ -1,3 +1,252 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+From Groceries.css:
+.servings_Input
+{
+    background-color: rgb(227, 219, 208);
+    color: rgb(2, 2, 2);
+    border: solid black;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 5%;
+}
+
+.create_New_Item_Button
+{
+    background-color: rgb(57,35,1);
+    color: white;
+    border: solid black;
+
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    border-radius: 5px;
+    width: 20%;
+}
+
+.grocery_List
+{
+    color: rgb(2, 2, 2);
+    border: solid black;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    overflow-y: scroll;
+    display: inline-block;
+    height: 500px;
+    width: 30%;
+    
+}
+
+.grocery_Header
+{
+    color: rgb(2, 2, 2);
+    border: dotted black;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+}
+
+.grocery_Database
+{
+    color: rgb(2, 2, 2);
+    border: dotted black;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    padding: 10px 20px;
+
+}
+
+.cart_Database
+{
+    color: rgb(2, 2, 2);
+    border: dotted black;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    padding: 10px 20px;
+}
+.user_cart
+{
+    color: rgb(2, 2, 2);
+    border: solid black;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow-y: scroll;
+    display: inline-block;
+    height: 500px;
+    width: 30%;
+}
+
+.cart_Header
+{
+    color: rgb(2, 2, 2);
+    border: dotted black;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+}
+
+.btn-primary 
+{
+    margin: 10px;   
+}
+
+.calculation
+{
+    border: dotted black;  
+    float: right;
+}
+
+
+.total
+{
+    border: dotted rgb(111, 87, 87);
+    background-color: rgb(227, 219, 208);
+    color: rgb(2, 2, 2);
+    border: solid black;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.welcome {
+    color: rgb(59, 55, 55);
+}
+
+.header {
+    
+}
+
+//.........................................................................
+From Nav Bar css
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+body {
+  font-family:"Roboto Condensed" sans-serif;  
+}
+
+/* *************Nav****************** */
+.logo {
+    width: 16.25rem;
+  }
+  
+  /* Menu links */
+  .navbar_link {
+   font-weight: 500; 
+   letter-spacing: 0.0375rem;
+   cursor: pointer;
+  }
+  
+  .navbar {
+    text-transform: uppercase;
+    text-align: left !important;
+  }
+
+  //.............................................................
+
+From Grocery calc css:
+
+
+  .Dashboard {
+  text-align: center;
+}
+
+.bg {
+  background-image: url(./Cream\ Red\ Simple\ Closed\ Store\ Facebook\ Post.png);
+  background-size: cover;
+  width: 900px;
+  /* height: px; */
+}
+
+
+/* Import the google web fonts you want to use */
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  color: #404040;
+  font-family: "Comfortaa", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body {
+    padding: 0 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+.title--main {
+  margin-block-end: 0;
+}
+
+
+//.........................................................
+Bootstrap Nav Bar  
+
+return (
+    <Navbar bg="light" expand="lg">
+        {/* <a className="logo" href="#"><img src={logo} alt="logo..."/></a> */}
+      <Container>
+        <Navbar.Brand href="#home">Grocery Calculator</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="navbar_link">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Profile</Nav.Link>
+            <Nav.Link href="#link">Saved Carts</Nav.Link>
+            <Nav.Link className="navbar_link" to="" onClick={() => {
+                            localStorage.removeItem("grocery_user")
+                            navigate("/", {replace: true})
+                        }}>Logout</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+

@@ -74,7 +74,7 @@ export const NewItemForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="ex: 2.00"
+                        placeholder="no need for a $"
                         value={groceryItem.itemPrice}
                         onChange={
                                 (evt) => {

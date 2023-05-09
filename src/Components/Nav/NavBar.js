@@ -44,7 +44,7 @@ export const NavBar = () => {
           <a href="">Home</a>
           <a href="">Saved Carts</a>
           <a href="">Profile</a>
-          <a href="" onClick={() => {
+          <a onClick={() => {
                            localStorage.removeItem("grocery_user")
                            navigate("/", {replace: true})
                      }}>Logout</a>

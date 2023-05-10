@@ -34,24 +34,23 @@ nav {
   align-items: center;
   justify-content: space-between;
   min-height: 90px;
+  background-color: #fae2bee2;
 }
 
-.nav-logo-container {
-  /* margin-top: 20rem; */
- 
-}
-
-.navbar-menu-container {
-  display: none;
-}
 .navbar-links-container a {
   margin-right: 3rem;
   text-decoration: none;
   color: black;
   font-size: 1.1rem;
   font-weight: 600;
+  cursor: pointer;
 }
-.primary-button {
+
+/* .navbar-menu-container {
+  display: none;
+} */
+
+/* .primary-button {
   padding: 0.9rem 1.75rem;
   background-color: white;
   outline: none;
@@ -61,30 +60,34 @@ nav {
   cursor: pointer;
   font-weight: 600;
   transition: 0.2s;
-}
-.navbar-cart-icon {
+} */
+/* .navbar-cart-icon {
   font-size: 1.15rem;
-}
-.primary-button:hover {
+} */
+/* .primary-button:hover {
   background-color: rgb(234, 234, 234);
-}
-.navbar-menu-container svg {
+} */
+/* .navbar-menu-container svg {
   font-size: 1.5rem;
   cursor: pointer;
-}
+} */
+ 
+/* .basic-navbar-nav {
+  
+}   */
 
 /* home banner ......................................*/
 .home-banner-container {
   position: relative;
   display: flex;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 .home-bannerImage-container {
   width: 2160px; 
   left: 0px; 
   top: 0px; 
-  z-index: -1;
-  background-color: #FFDEAC;
+  /* z-index: -1; */
+  /* background-color: #FFDEAC; */
 }
 
 .user-print {

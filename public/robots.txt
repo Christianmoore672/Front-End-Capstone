@@ -254,5 +254,4 @@ return (
 Help
 - how to limit the decimal point displayed on the total 
 - how to make the containers decrease in size along with the page
--how to get rid of white bar at the top of page
 - display just 1 user

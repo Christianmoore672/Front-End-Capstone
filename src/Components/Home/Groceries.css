@@ -1,0 +1,22 @@
+.groceryItemForm {
+    width: 500px;
+    margin: 0px auto;
+    overflow-x: hidden;
+    box-shadow: 2px 10px 8px #669065;
+    margin-top: 50px;
+    padding: 50px
+}
+
+.item-save-button {
+    width: 200px;
+    height: 45px;
+    border-radius: 32px;
+    outline: none;
+    /* color: ; */
+    background-color: #68a061;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px solid #fff;
+    letter-spacing: 0.09em;
+}

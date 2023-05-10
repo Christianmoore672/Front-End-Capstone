@@ -20,21 +20,21 @@ export const Grocery = () => {
     }
   }
 
-  {
-    if(container === 'initial'){
-      setContainer('register');
-    }
-    else if(container !== 'initial'){
-      setContainer('inintial');
-    }
-  }
+  // {
+  //   if(container === 'initial'){
+  //     setContainer('register');
+  //   }
+  //   else if(container !== 'initial'){
+  //     setContainer('inintial');
+  //   }
+  // }
 
   
   return <Routes>
   <Route path='/MainContainer' element={<MainContainer container = {container}
   changeContainerState = {changeContainerState}
   />} />
-  <Route path="/login" element={<Login/>} />
+  {/* <Route path="/login" element={<Login/>} /> */}
   <Route path="/register" element={<Register />} />
 
   <Route path="*" element={

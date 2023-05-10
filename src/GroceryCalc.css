@@ -33,7 +33,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 90px;
+  min-height: 60px;
   background-color: #fae2bee2;
 }
 
@@ -91,9 +91,9 @@ nav {
 }
 
 .user-print {
-color: black;
+color: rgb(249, 242, 242);
 position: absolute;
-top: 43%;
+top: 40%;
 left: 50%;
 transform: translate(-50%, -50%);
 font-size: 50px;
@@ -186,8 +186,8 @@ font-size: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
-  height: 450px;
-  width: 500px;
+  height: 50%;
+  width: 400px;
   font-size: 20px;
   border-radius: 10px;
 }
@@ -227,8 +227,8 @@ font-size: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
-  height: 500px;
-  width: 500px;
+  height: 50%;
+  width: 400px;
   font-size: 20px;
   border-radius: 10px;
 }
@@ -239,17 +239,18 @@ font-size: 50px;
   /* border: 2px solid rgb(247, 245, 239); */
   border: 2px solid rgb(240, 234, 216);
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
   color: rgb(0, 0, 0);
 
   position: absolute;
   top: 87%;
-  left: 63%;
+  left: 65.5%;
   width: 100px;
   transform: translate(-50%, -50%);
   /* padding: 10px; */
   font-size: 30px;
   text-align: center;
+  overflow: hidden;
 }
 
 .remove-from-cart-button {
@@ -257,19 +258,19 @@ font-size: 50px;
 }
 
 .calculate-button {
-color: #484848;
-cursor: pointer;
-border-radius: 5px;
-color: black;
-
-position: absolute;
-top: 92%;
-left: 63%;
-transform: translate(-50%, -50%);
-padding: 5px;
-font-size: 20px;
-text-align: center;
-margin: 5px;
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  outline: none;
+  background-color: #ffffff;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #fff;
+  letter-spacing: 0.09em;
+  position: absolute;
+  top: 89%;
+  left: 62%; 
 
 }
 /*.................................... */

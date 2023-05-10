@@ -20,7 +20,6 @@ export const Groceries = () => {
     const navigate = useNavigate()
 
     const [user, setUser] = useState([])
-    const [filteredUser, setFilteredUser] = useState([])
 
     const localGroceryUser = localStorage.getItem("grocery_user")
     const groceryUserObject = JSON.parse(localGroceryUser)
@@ -91,7 +90,7 @@ export const Groceries = () => {
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/groceryItems`)
+            fetch(`http://localhost:8088/groceryItems`)
                 .then(response => response.json())
                 .then((groceryItemArray) => {
                     setGroceries(groceryItemArray)
@@ -127,7 +126,7 @@ export const Groceries = () => {
 
             }
            })
-           setGroceryTotal(total)
+           setGroceryTotal(total.toFixed(2))  
 
 
         }
@@ -137,11 +136,11 @@ export const Groceries = () => {
         <div className="home-banner-container">
             <div className="home-bannerImage-container">
                 <NavBar/>
+
                 <label className="user-print">
-                  {user && user.length > 0 && user.map((groceryUserObject) => (
-                  <div key={groceryUserObject.id}>{groceryUserObject.fullName}</div>
-                   ))}
+                  {groceryUserObject.fullName} 
                </label>
+
                 <img src={Welcome} alt="" />
             </div>
         </div>
@@ -226,7 +225,7 @@ export const Groceries = () => {
                         <button
                             onClick={(event) => {CalculateTotal(event)}}
                             className="calculate-button">
-                            Calculate Total
+                            Calculate
                         </button>
                     </div>
 

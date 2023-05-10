@@ -252,6 +252,15 @@ return (
 
 
 Help
-- how to limit the decimal point displayed on the total 
-- how to make the containers decrease in size along with the page
-- display just 1 user
+-Items grow with page
+-remove zeros from form
+- Page scrolls back to form section once an item is submitted
+
+
+To Do 
+- style delete, add, remove buttons
+- double click
+- uniform colors
+- uniform font
+
+

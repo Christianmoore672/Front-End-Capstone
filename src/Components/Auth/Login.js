@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import login1 from '../Images/login1.png'
 import { Icon } from 'react-icons-kit'
-import logo from '../Images/logo.png'
+import login2 from '../Images/login2.png'
+import login3 from '../Images/login3.png'
 
 export const Login = ({container}) => {
 //     const [email, set] = useState("")
@@ -78,6 +79,7 @@ const handleLogin = (e) => {
                         const user = foundUsers[0]
                         localStorage.setItem("grocery_user", JSON.stringify({
                             id: user.id,
+                            fullName: user.fullName
                         }))
     
                         navigate("/")
@@ -99,10 +101,11 @@ return (
         <h1>Grocery Calculator</h1>
            {/* <p>Please sign in</p> */}
              <button onClick={handleChangeState}>SIGN IN</button>
-             <button onClick={handleChangeState}>REGISTER</button>
+             {/* <button to="/register">REGISTER</button> */}
+             <Link className='register-link' to="/register">Not a member yet?</Link>
         </div>
         <div className='rightside'>
-            <img src={login1} alt=""/>
+            <img src={login3} alt=""/>
         </div>
         </>
     )}
@@ -121,8 +124,7 @@ return (
                             required autoFocus />
                 </div>
                 <button type="submit" 
-                   className='signin-button'
-                   onClick={handleChangeState}> 
+                   className='signin-button'> 
                    SIGN IN
                 </button>
             </form>
@@ -131,41 +133,13 @@ return (
               <h1>Welcome Back!</h1>
               <p></p>
               <div className='img'>
-                 <img src={login1} alt=""/>
+                 <img src={login2} alt=""/>
               </div>
              
            </div>
         </>
         )
-    }   
-
-{
-        container === 'register' && (
-        <>
-           <div className='form-section'>
-            <h1>Register</h1>
-            <form autoComplete='off'>
-                <div className='custom-input'>
-                    <input placeholder='email:'/>
-                </div>
-                <button type='button' 
-                   className='signin-button'
-                   onClick={handleChangeState}> 
-                   REGISTER
-                </button>
-            </form>
-           </div>
-           <div className='rightside form-section'>
-              <h1>Nice To Meet You!</h1>
-              <p></p>
-              <div className='img'>
-                 <img src={login1} alt=""/>
-              </div>
-             
-           </div>
-        </>
-        )
-    }   
+    }    
 
     </div>
     </section>

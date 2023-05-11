@@ -8,6 +8,10 @@ import Two from "../Images/Two.png"
 import Three from "../Images/Three.png"
 import Four from "../Images/Four.png"
 import Five from "../Images/Five.png"
+import remonveFromCart from "../Images/removeFromCart.png"
+import trash from "../Images/trash.png"
+import toCart from "../Images/toCart.png"
+import Calc from "../Images/Calc.png"
 
 
 
@@ -166,23 +170,33 @@ export const Groceries = () => {
                     filteredGroceries.map(
                         (groceryItem) => {
                             return <section className="grocery-item">
-                                <header>
-                                    <Link to={`/groceryItems/${groceryItem.id}/edit`}>{groceryItem.itemName}</Link>
-                                </header>
-                                <section>Price: ${groceryItem.itemPrice}</section>
-                                <section>Servings Per Container: {groceryItem.itemServings}</section>
-                                <footer>
-                                    <button
-                                        onClick={() => deleteGroceryItem(groceryItem.id)}
-                                        className="delete_Button">
-                                        Delete
-                                    </button>
-                                    <button
-                                        onClick={() => addToCart(groceryItem.id)}
-                                        className="add-to-cart-button">
-                                        Add To Cart
-                                    </button>
+                                <section className='grocery-left'>
+                                   <header className='gorcery-name'>
+                                       <Link to={`/groceryItems/${groceryItem.id}/edit`}>{groceryItem.itemName}</Link>
+                                   </header>
+                                   <section className='grocery-price'>Price: ${groceryItem.itemPrice}</section>
+                                   <section className='grocery-servings'>Servings Per Container: {groceryItem.itemServings}</section>
+                                </section>
+                
+                                   <footer>
+                                   <div className='grocery-right'>
+                                   <div className="add-to-cart">
+                                       <button
+                                           onClick={() => addToCart(groceryItem.id)}
+                                           className="add-to-cart-button">
+                                           <img className="add-to-cart-image" src={toCart} alt="" />
+                                       </button>
+                                    </div>
+                                    <div className="delete">
+                                       <button
+                                           onClick={() => deleteGroceryItem(groceryItem.id)}
+                                           className="delete-button">
+                                           <img className="delete-item-image" src={trash} alt="" />
+                                       </button>
+                                    </div>
+                                    </div>
                                 </footer>
+                              
                             </section>
                         }
                     )
@@ -198,15 +212,19 @@ export const Groceries = () => {
                     filteredCartGroceries.map(
                         (cartItem) => {
                             return <section className="cart-item">
-                                <header>{cartItem.itemName}</header>
-                                <section>Price: ${cartItem.itemPrice}</section>
-                                <section>Servings Per Container: {cartItem.itemServings}</section>
+                                <div className='cart-item-left'>
+                                <header className='cart-item-name'>{cartItem.itemName}</header>
+                                <section className='cart-item-price'>Price: ${cartItem.itemPrice}</section>
+                                <section className='cart-item-servings'>Servings Per Container: {cartItem.itemServings}</section>
+                                </div>
                                 <footer>
+                                    <div className='cart-item-right'>
                                     <button
                                         onClick={() => removeFromCart(cartItem.id)}
                                         className="remove-from-cart-button">
-                                        Remove From Cart
+                                        <img className="remove-cart-image" src={remonveFromCart} alt="" />
                                     </button>
+                                </div>
                                 </footer>
                             </section>
                         }
@@ -225,6 +243,7 @@ export const Groceries = () => {
                         <button
                             onClick={(event) => {CalculateTotal(event)}}
                             className="calculate-button">
+                            {/* <img className="calc-image" src={Calc} alt="" /> */}
                             Calculate
                         </button>
                     </div>
